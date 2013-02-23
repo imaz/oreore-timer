@@ -1,5 +1,5 @@
 describe('pomodoro.js', function() {
-  var clock;
+  var clock, default_wait_time = 1000 * 60 * 25;
 
   before(function() {
     clock = sinon.useFakeTimers();
@@ -13,29 +13,29 @@ describe('pomodoro.js', function() {
     expect(0).to.eql(actual);
   });
 
-  it('4999msec後にカウントが0のままになっていること', function() {
+  it('25分-1msec後にカウントが0のままになっていること', function() {
     var target = new Pomodoro();
     target.start();
 
-    clock.tick(4999);
+    clock.tick(default_wait_time - 1);
     var actual = target.count;
     expect(0).to.eql(actual);
   });
 
-  it('5000msec後にカウントが1になっていること', function() {
+  it('25分後にカウントが1になっていること', function() {
     var target = new Pomodoro();
     target.start();
 
-    clock.tick(5000);
+    clock.tick(default_wait_time);
     var actual = target.count;
     expect(1).to.eql(actual);
   });
 
-  it('10000msec後にカウントが2になっていること', function() {
+  it('50分後にカウントが2になっていること', function() {
     var target = new Pomodoro();
     target.start();
 
-    clock.tick(10000);
+    clock.tick(default_wait_time * 2);
     var actual = target.count;
     expect(2).to.eql(actual);
   });
