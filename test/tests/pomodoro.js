@@ -12,7 +12,7 @@ describe('pomodoro.js', function() {
     target.start();
 
     var actual = target.count;
-    expect(0).to.eql(actual);
+    expect(actual).to.eql(0);
   });
 
   it('25分-1msec後にカウントが0のままになっていること', function() {
@@ -21,7 +21,7 @@ describe('pomodoro.js', function() {
 
     clock.tick(concentrait_time - 1);
     var actual = target.count;
-    expect(0).to.eql(actual);
+    expect(actual).to.eql(0);
   });
 
   it('25分後にカウントが1になっていること', function() {
@@ -30,7 +30,7 @@ describe('pomodoro.js', function() {
 
     clock.tick(concentrait_time);
     var actual = target.count;
-    expect(1).to.eql(actual);
+    expect(actual).to.eql(1);
   });
 
   it('55分-1msec後にカウントが1のままになっていること', function() {
@@ -41,7 +41,7 @@ describe('pomodoro.js', function() {
              + coffee_break_time - 1;
     clock.tick(wait_time);
     var actual = target.count;
-    expect(1).to.eql(actual);
+    expect(actual).to.eql(1);
   });
 
   it('55分後にカウントが2になっていること', function() {
@@ -52,7 +52,7 @@ describe('pomodoro.js', function() {
              + coffee_break_time;
     clock.tick(wait_time);
     var actual = target.count;
-    expect(2).to.eql(actual);
+    expect(actual).to.eql(2);
   });
 
   after(function() {
