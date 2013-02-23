@@ -1,9 +1,10 @@
 var Pomodoro = function() {
-	var timer_id;
+  var timer_id;
 
+  this.count = 0;
   this.start = function() {
     timer_id = setInterval(function() {
-      console.log("ほげ");
+      this.count += 1;
     }, 5000);
   };
 };
